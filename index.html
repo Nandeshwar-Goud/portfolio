@@ -12,9 +12,9 @@
       <div class="title"><h1>RNG</h1></div>
       <div class="menu">
         <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Projects</a></li>
+          <li><a href="#profile">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
           <li><a href="#">Contact</a></li>
         </ul>
       </div>
@@ -30,14 +30,16 @@
         <div class="menu-links">
           <ul>
             <li><a href="#" onclick="toggleBtn()">Home</a></li>
-            <li><a href="#about" onclick="toggleBtn()">About</a></li>
+            <li>
+              <a href="#about" onclick="toggleBtn();">About</a>
+            </li>
             <li><a href="#" onclick="toggleBtn()">Projects</a></li>
             <li><a href="#" onclick="toggleBtn()">Contact</a></li>
           </ul>
         </div>
       </div>
     </nav>
-    <section class="profile">
+    <section class="profile" id="profile">
       <div class="flx-maker" id="header">
         <div class="name">
           <h1>Hello,</h1>
@@ -81,8 +83,25 @@
       <div class="abt-text"><h1>ABOUT ME</h1></div>
       <div class="abt-con">
         <div class="abt-imgcon">
-          <img src="assets/me-2.jpeg" alt="Nandeshwar" id="abtimg" />
-          <div class="education"></div>
+          <div>
+            <img src="assets/me-2.jpeg" alt="Nandeshwar" id="abtimg" />
+          </div>
+          <div class="education">
+            <div class="ed">
+              <div>
+                <img src="assets/education.png" alt="education" class="icon" />
+              </div>
+              <div>
+                <h3>Education.</h3>
+              </div>
+            </div>
+            <div>
+              <p>
+                I am currently pursuing my undergraduate degree in Computer
+                Science and Engineering.
+              </p>
+            </div>
+          </div>
         </div>
         <div class="arrow">
           <img
@@ -95,6 +114,7 @@
         </div>
       </div>
     </section>
+    <section id="projects"></section>
     <script src="script.js"></script>
   </body>
 </html>
