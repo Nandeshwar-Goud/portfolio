@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="mediaqueries.css" />
+    <title>RNG-Portfolio</title>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="title"><h1>RNG</h1></div>
+      <div class="menu">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Projects</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+    <nav class="humburger-nav">
+      <div class="title"><h1>RNG</h1></div>
+      <div class="humburger-menu">
+        <div class="humburger-icon" onclick="toggleBtn()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="menu-links">
+          <ul>
+            <li><a href="#" onclick="toggleBtn()">Home</a></li>
+            <li><a href="#about" onclick="toggleBtn()">About</a></li>
+            <li><a href="#" onclick="toggleBtn()">Projects</a></li>
+            <li><a href="#" onclick="toggleBtn()">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <section class="profile">
+      <div class="flx-maker" id="header">
+        <div class="name">
+          <h1>Hello,</h1>
+          <h1>I'm <span>Nandeshwar</span></h1>
+          <h1>an Aspiring Software Engineer.</h1>
+          <p>I'm fascinate about modern Technology and it's features.</p>
+          <button
+            onclick="window.open('./assets/rangunandeshwargoud_resume.pdf')"
+          >
+            View Resume
+          </button>
+
+          <div class="social-con">
+            <img
+              src="assets/github-sign.png"
+              alt="github"
+              class="social-image"
+              onclick="location.href='https://github.com'"
+            />
+            <img
+              src="assets/linkedin.png"
+              alt="linkedin"
+              class="social-image"
+              onclick="location.href='https://linkedin.com'"
+            />
+          </div>
+        </div>
+        <div class="photo-me">
+          <img src="assets/nandu.jpg" alt="Nandeshwar" />
+        </div>
+      </div>
+      <img
+        src="assets/down-arrow.png"
+        alt=""
+        class="down-arrow"
+        id="three-down"
+        onclick="location.href='./#about'"
+      />
+    </section>
+    <section class="abt" id="about">
+      <div class="abt-text"><h1>ABOUT ME</h1></div>
+      <div class="abt-con">
+        <div class="abt-imgcon">
+          <img src="assets/me-2.jpeg" alt="Nandeshwar" id="abtimg" />
+          <div class="education"></div>
+        </div>
+        <div class="arrow">
+          <img
+            src="assets/down-arrow.png"
+            alt="arrow"
+            class="down-arrow"
+            id="abtdown"
+            onclick="location.href='./#projects'"
+          />
+        </div>
+      </div>
+    </section>
+    <script src="script.js"></script>
+  </body>
+</html>

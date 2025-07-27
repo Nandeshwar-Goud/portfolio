@@ -1,0 +1,30 @@
+@media screen and (max-width:790px) {
+    .humburger-nav {
+        display: flex;
+        justify-content: space-between;
+        padding: 5px 5%;
+        height: 10vh;
+        width: 100%;
+        box-sizing: border-box;
+
+
+    }
+
+    .navbar {
+        display: none;
+    }
+
+    .flx-maker {
+        box-sizing: border-box;
+
+        padding: 10px 5%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        height: fit-content;
+    }
+
+    .photo-me {
+        margin-left: 1rem;
+    }
+}
