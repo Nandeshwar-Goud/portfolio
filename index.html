@@ -4,106 +4,250 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="mediaqueries.css" />
   <title>RNG-Portfolio</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <nav class="navbar">
-    <div class="title">
-      <h1>RNG</h1>
-    </div>
-    <div class="menu">
-      <ul>
-        <li><a href="#profile">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
-  <nav class="humburger-nav">
-    <div class="title">
-      <h1>RNG</h1>
-    </div>
-    <div class="humburger-menu">
-      <div class="humburger-icon" onclick="toggleBtn()">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <div class="menu-links">
-        <ul>
-          <li><a href="#" onclick="toggleBtn()">Home</a></li>
-          <li>
-            <a href="#about" onclick="toggleBtn();">About</a>
-          </li>
-          <li><a href="#" onclick="toggleBtn()">Projects</a></li>
-          <li><a href="#" onclick="toggleBtn()">Contact</a></li>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">RNG</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+        aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link active" href="#profile">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
         </ul>
       </div>
     </div>
   </nav>
-  <section class="profile" id="profile">
-    <div class="flx-maker" id="header">
-      <div class="name">
-        <h1>Hello,</h1>
-        <h1>I'm <span>Nandeshwar</span></h1>
-        <h1>an Aspiring Software Engineer.</h1>
-        <p>I'm fascinate about modern Technology and it's features.</p>
-        <button onclick="window.open('./assets/rangunandeshwargoud_resume.pdf')">
-          View Resume
-        </button>
 
-        <div class="social-con">
-          <img src="assets/github-sign.png" alt="github" class="social-image"
-            onclick="location.href='https://github.com'" />
-          <img src="assets/linkedin.png" alt="linkedin" class="social-image"
-            onclick="location.href='https://linkedin.com'" />
-        </div>
-      </div>
-      <div class="photo-me">
-        <img src="assets/nandu.jpg" alt="Nandeshwar" />
-      </div>
-    </div>
-    <img src="assets/down-arrow.png" alt="" class="down-arrow" id="three-down" onclick="location.href='./#about'" />
-  </section>
-  <section class="abt" id="about">
-    <div class="abt-text">
-      <h1>ABOUT ME</h1>
-    </div>
-    <div class="abt-con">
-      <div class="abt-imgcon">
-        <div>
-          <img src="assets/me-2.jpeg" alt="Nandeshwar" id="abtimg" />
-        </div>
-        <div class="education">
-          <div class="ed">
-            <div>
-              <img src="assets/education.png" alt="education" class="icon" />
-            </div>
-            <div>
-              <h3>Education.</h3>
-            </div>
+  <!-- Profile Section -->
+  <section id="profile" class="bg-light">
+    <div class="container">
+      <div class="row align-items-center">
+        <!-- Text -->
+        <div class="col-md-6">
+          <h1 class="fw-bold">Hello,</h1>
+          <h1>I'm <span class="text-info">Nandeshwar</span></h1>
+          <h2 class="h4">An Aspiring Software Engineer</h2>
+          <p class="mt-3">I'm fascinated about modern technology and its features.</p>
+          <a href="./assets/rangunandeshwargoud_resume.pdf" class="btn btn-dark rounded-pill mt-3" target="_blank">
+            View Resume
+          </a>
+
+          <!-- Social -->
+          <div class="social-icons mt-4">
+            <a href="https://github.com" target="_blank"><img src="assets/github-sign.png" alt="GitHub"></a>
+            <a href="https://linkedin.com" target="_blank"><img src="assets/linkedin.png" alt="LinkedIn"></a>
           </div>
-          <div>
-            <p>
-              I am currently pursuing my undergraduate degree in Computer
-              Science and Engineering.
+        </div>
+
+        <!-- Image -->
+        <div class="col-md-6 text-center mt-4 mt-md-0">
+          <img src="assets/nandu.jpg" alt="Nandeshwar" class="hero-img img-fluid shadow">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="container text-center">
+      <h1 class="fw-bold mb-5">ABOUT ME</h1>
+      <div class="row">
+        <!-- Image -->
+        <div class="col-md-5 mb-4 mb-md-0">
+          <img src="assets/me-2.jpeg" alt="Nandeshwar" class="img-fluid rounded shadow">
+        </div>
+        <!-- Text -->
+        <div class="container col-md-7 text-start">
+          <div class="d-flex justify-content-start align-items-start mb-3">
+            <img src="assets/education.png" alt="Education" class="me-3" style="height: 30px;">
+            <h3>Details</h3>
+          </div>
+          <div class="container">
+            <p class="lead">
+              I am currently pursuing my undergraduate degree in Computer Science and Engineering.
+            </p>
+
+            <p class="lead">
+
+              I enjoy working on <strong>web development, Android applications, and problem-solving</strong> using
+              languages like <strong>Java, Python, and C++</strong>.
+            </p>
+            <p class="lead">
+              I have hands-on experience with <strong>frontend and backend development</strong>,
+              databases like <strong>MongoDB and SQL</strong>, and frameworks such as <strong>Bootstrap</strong>.
+              Alongside academics, I’m actively exploring <strong>Data Structures, Algorithms, and
+                Cybersecurity</strong>
+              to strengthen my technical foundation.
+            </p>
+            <p class="lead">
+              My goal is to contribute to impactful projects, enhance my skills in
+              <strong>full-stack development</strong>, and pursue opportunities where I can grow
+              as a software engineer while delivering real-world value.
+            </p>
+            <p class="lead">
+              Outside of coding, I enjoy exploring new technologies, reading about
+              <strong>AI trends</strong>, and contributing to small open-source projects.
+              I also like to stay active by playing outdoor sports, which helps me maintain
+              a balanced and energetic lifestyle.
+            </p>
+            <p class="lead">
+              My long-term goal is to grow into a <strong>full-stack developer</strong> and eventually
+              work on impactful projects in fields like <strong>AI, cybersecurity, and cloud computing</strong>.
+              I am eager to collaborate, learn continuously, and contribute my skills to
+              meaningful innovations that make a difference.
             </p>
           </div>
         </div>
       </div>
-      <div class="arrow">
-        <img src="assets/down-arrow.png" alt="arrow" class="down-arrow" id="abtdown"
-          onclick="location.href='./#projects'" />
+    </div>
+  </section>
+  <!-- Skills Section -->
+  <section id="skills" class="bg-light">
+    <div class="container text-center">
+      <h2 class="mb-4">Skills</h2>
+      <div class="row gy-4">
+        <div class="col-md-3">
+          <div class="p-3 border rounded">
+            <i class="bi bi-filetype-html fs-1 text-danger"></i>
+            <p class="mt-2">HTML</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="p-3 border rounded">
+            <i class="bi bi-filetype-css fs-1 text-primary"></i>
+            <p class="mt-2">CSS</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="p-3 border rounded">
+            <i class="bi bi-filetype-js fs-1 text-warning"></i>
+            <p class="mt-2">JavaScript</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="p-3 border rounded">
+            <i class="bi bi-bootstrap-fill fs-1 text-purple"></i>
+            <p class="mt-2">Bootstrap</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="p-3 border rounded">
+            <i class="bi bi-cup-hot-fill fs-1 text-brown"></i>
+            <p class="mt-2">Java</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="p-3 border rounded">
+            <i class="bi bi-filetype-py fs-1 text-info"></i>
+            <p class="mt-2">Python</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="p-3 border rounded">
+            <i class="bi bi-terminal-fill fs-1 text-dark"></i>
+            <p class="mt-2">C/C++</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="p-3 border rounded">
+            <i class="bi bi-database-fill fs-1 text-success"></i>
+            <p class="mt-2">MongoDB</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="p-3 border rounded">
+            <i class="bi bi-database-check fs-1 text-primary"></i>
+            <p class="mt-2">SQL</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
-  <section id="projects"></section>
-  <script src="script.js"></script>
+
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-4">Projects</h2>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="card project-card">
+            <img src="https://via.placeholder.com/400x200" class="card-img-top" alt="Project 1">
+            <div class="card-body">
+              <h5 class="card-title">Project One</h5>
+              <p class="card-text">A short description of your project.</p>
+              <a href="#" class="btn btn-primary">View</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card project-card">
+            <img src="https://via.placeholder.com/400x200" class="card-img-top" alt="Project 2">
+            <div class="card-body">
+              <h5 class="card-title">Project Two</h5>
+              <p class="card-text">A short description of your project.</p>
+              <a href="#" class="btn btn-primary">View</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card project-card">
+            <img src="https://via.placeholder.com/400x200" class="card-img-top" alt="Project 3">
+            <div class="card-body">
+              <h5 class="card-title">Project Three</h5>
+              <p class="card-text">A short description of your project.</p>
+              <a href="#" class="btn btn-primary">View</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-5  bg-dark text-white text-center py-3">
+    <div class="container">
+      <h2 class="text-center mb-4">Contact Me</h2>
+      <form class="w-50 mx-auto">
+        <div class="mb-3">
+          <input type="text" class="form-control" placeholder="Your Name" required>
+        </div>
+        <div class="mb-3">
+          <input type="email" class="form-control" placeholder="Your Email" required>
+        </div>
+        <div class="mb-3">
+          <textarea class="form-control" rows="4" placeholder="Your Message" required></textarea>
+        </div>
+        <button class="btn btn-primary w-100">Send Message</button>
+      </form>
+      <p class="mb-0">© 2025 My Portfolio | Built with Bootstrap</p>
+    </div>
+  </section>
+  <!-- footer -->
+
+  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
