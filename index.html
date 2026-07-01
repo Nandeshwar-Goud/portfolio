@@ -4,293 +4,611 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Portfolio of Nandeshwar Goud, an aspiring Software Engineer specializing in Web Development, Machine Learning, and Problem-Solving." />
 
-  <title>RNG-Portfolio</title>
-  <link rel="icon" href="assets/portfolio.ico" type="image/x-icon">
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://rngs.in" />
+  <meta property="og:title" content="Nandeshwar Goud | Software Engineer Portfolio" />
+  <meta property="og:description"
+    content="Portfolio of Nandeshwar Goud, an aspiring Software Engineer specializing in Web Development, Machine Learning, and Problem-Solving." />
+  <meta property="og:image" content="https://rngs.in/assets/nandu.jpg" />
 
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Bootstrap CSS -->
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://rngs.in" />
+  <meta property="twitter:title" content="Nandeshwar Goud | Software Engineer Portfolio" />
+  <meta property="twitter:description"
+    content="Portfolio of Nandeshwar Goud, an aspiring Software Engineer specializing in Web Development, Machine Learning, and Problem-Solving." />
+  <meta property="twitter:image" content="https://rngs.in/assets/nandu.jpg" />
 
+  <title>Nandeshwar Goud | Software Engineer Portfolio</title>
+  <link class="icon" rel="icon" href="assets/portfolio.ico" type="image/x-icon">
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Instrument Serif', 'serif'],
+          },
+          colors: {
+            neutral: {
+              50: '#fafafa',
+              100: '#f4f4f5',
+              200: '#e4e4e7',
+              300: '#d4d4d8',
+              400: '#a1a1aa',
+              500: '#71717a',
+              600: '#52525b',
+              700: '#3f3f46',
+              800: '#27272a',
+              900: '#18181b',
+              950: '#09090b',
+            }
+          }
+        }
+      }
+    }
+  </script>
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700&display=swap"
-    rel="stylesheet">
+  <!-- Google Fonts & Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-
-
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
-    <div class="container">
-      <a class="navbar-brand fw-bold" href="#">RNG</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
-        aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+<body
+  class="bg-neutral-50 text-neutral-900 dark:bg-neutral-950 dark:text-neutral-50 selection:bg-neutral-900 selection:text-white dark:selection:bg-white dark:selection:text-neutral-950">
+
+  <!-- Header / Navbar -->
+  <header
+    class="fixed top-0 left-0 right-0 z-50 bg-neutral-50/80 dark:bg-neutral-950/80 backdrop-blur-md border-b border-neutral-200/50 dark:border-neutral-800/50">
+    <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="#"
+        class="font-serif text-2xl font-bold tracking-tight text-neutral-900 dark:text-white hover:opacity-80 transition-opacity"
+        id="nav-brand">
+        RNG
+      </a>
+
+      <!-- Desktop Nav & Theme Toggle -->
+      <div class="flex items-center space-x-6 sm:space-x-8">
+        <nav class="hidden md:flex items-center space-x-8 text-sm font-medium tracking-wide">
+          <a href="#profile"
+            class="text-neutral-400 dark:text-neutral-500 hover:text-neutral-900 dark:hover:text-white transition-colors link-underline"
+            id="nav-home">Home</a>
+          <a href="#about"
+            class="text-neutral-400 dark:text-neutral-500 hover:text-neutral-900 dark:hover:text-white transition-colors link-underline"
+            id="nav-about">About</a>
+          <a href="#skills"
+            class="text-neutral-400 dark:text-neutral-500 hover:text-neutral-900 dark:hover:text-white transition-colors link-underline"
+            id="nav-skills">Skills</a>
+          <a href="#projects"
+            class="text-neutral-400 dark:text-neutral-500 hover:text-neutral-900 dark:hover:text-white transition-colors link-underline"
+            id="nav-projects">Projects</a>
+          <a href="#contact"
+            class="text-neutral-400 dark:text-neutral-500 hover:text-neutral-900 dark:hover:text-white transition-colors link-underline"
+            id="nav-contact">Contact</a>
+        </nav>
+
+        <!-- Theme Toggle Button -->
+        <button id="theme-toggle"
+          class="p-2 text-neutral-900 dark:text-white hover:opacity-75 transition-opacity focus:outline-none"
+          aria-label="Toggle dark mode">
+          <!-- Sun Icon (visible in dark mode) -->
+          <svg id="theme-toggle-sun" class="w-5 h-5 hidden" fill="none" stroke="currentColor" stroke-width="2"
+            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M12 3v2.25m0 13.5V21m9.75-9h-2.25m-13.5 0H3m16.364-6.364l-1.591 1.591M6.343 17.657l-1.591 1.591m12.728 0l-1.591-1.591M6.343 6.343L4.752 4.752M12 7.5a4.5 4.5 0 100 9 4.5 4.5 0 000-9z">
+            </path>
+          </svg>
+          <!-- Moon Icon (visible in light mode) -->
+          <svg id="theme-toggle-moon" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2"
+            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z">
+            </path>
+          </svg>
+        </button>
+
+        <!-- Mobile Nav Toggle -->
+        <button
+          class="md:hidden p-2 text-neutral-900 dark:text-white hover:opacity-80 transition-opacity focus:outline-none"
+          id="menu-toggle" aria-expanded="false" aria-label="Toggle navigation menu">
+          <!-- Burger Icon -->
+          <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+          </svg>
+          <!-- Close Icon -->
+          <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-menu"
+      class="hidden md:hidden border-t border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-950 absolute left-0 right-0 px-6 py-8 flex flex-col space-y-6 text-base font-medium">
+      <a href="#profile" class="text-neutral-900 dark:text-white hover:text-neutral-500 transition-colors">Home</a>
+      <a href="#about" class="text-neutral-900 dark:text-white hover:text-neutral-500 transition-colors">About</a>
+      <a href="#skills" class="text-neutral-900 dark:text-white hover:text-neutral-500 transition-colors">Skills</a>
+      <a href="#projects" class="text-neutral-900 dark:text-white hover:text-neutral-500 transition-colors">Projects</a>
+      <a href="#contact" class="text-neutral-900 dark:text-white hover:text-neutral-500 transition-colors">Contact</a>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-6 pt-20">
+
+    <!-- Hero / Profile Section -->
+    <section id="profile" class="min-h-[85vh] flex items-center py-16">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 items-center w-full">
+        <!-- Hero Text -->
+        <div class="md:col-span-7 flex flex-col items-start text-left">
+          <div class="flex items-center space-x-2.5 mb-4">
+            <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span
+              class="text-xs uppercase tracking-widest text-neutral-400 dark:text-neutral-500 font-semibold">Aspiring
+              Software Engineer</span>
+          </div>
+          <h1
+            class="font-serif text-5xl sm:text-6xl lg:text-7xl font-normal tracking-tight text-neutral-900 dark:text-white leading-none mb-6">
+            Rangu Nandeshwar Goud
+          </h1>
+          <p class="text-neutral-600 dark:text-neutral-400 text-lg leading-relaxed max-w-xl mb-8">
+            Fascinated by modern technology and designing elegant, high-impact digital experiences. Pursuing Computer
+            Science and Engineering with a focus on web systems and problem solving.
+          </p>
+
+          <div class="flex flex-wrap items-center gap-6">
+            <a href="./assets/rangunandeshwargoud_resume.pdf"
+              class="inline-flex items-center justify-center bg-neutral-900 dark:bg-white text-white dark:text-neutral-950 px-6 py-3 text-sm font-medium tracking-wide uppercase hover:bg-neutral-800 dark:hover:bg-neutral-200 transition duration-300"
+              target="_blank" id="btn-resume">
+              View Resume <span class="ml-2 font-sans">→</span>
+            </a>
+
+            <div class="flex items-center space-x-5">
+              <a href="https://github.com/Nandeshwar-Goud" target="_blank"
+                class="text-neutral-900 dark:text-white hover:text-neutral-500 dark:hover:text-neutral-400 transition-colors text-xl"
+                aria-label="GitHub">
+                <i class="bi bi-github"></i>
+              </a>
+              <a href="https://www.linkedin.com/in/nandeshwar-goud-rangu-6292b322a/" target="_blank"
+                class="text-neutral-900 dark:text-white hover:text-neutral-500 dark:hover:text-neutral-400 transition-colors text-xl"
+                aria-label="LinkedIn">
+                <i class="bi bi-linkedin"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Image -->
+        <div class="md:col-span-5 flex justify-center">
+          <div
+            class="relative max-w-[320px] md:max-w-full aspect-[4/5] w-full rounded-2xl overflow-hidden shadow-sm border border-neutral-200 dark:border-neutral-800">
+            <img src="assets/nandu.jpg" alt="Nandeshwar Goud portrait"
+              class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-in-out">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 border-t border-neutral-200/60 dark:border-neutral-800/60">
+      <div
+        class="grid grid-cols-1 md:grid-cols-12 gap-12 scroll-reveal opacity-0 translate-y-8 transition-all duration-700 ease-out">
+        <!-- About Left: Title & Image -->
+        <div class="md:col-span-5 flex flex-col space-y-8">
+          <div>
+            <span class="text-xs uppercase tracking-widest text-neutral-400 dark:text-neutral-500 font-semibold">
+              About Me</span>
+            <h2 class="font-serif text-4xl sm:text-5xl font-normal text-neutral-900 dark:text-white mt-2">A Developer's
+              Story</h2>
+          </div>
+          <div
+            class="aspect-[4/3] w-full rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-900">
+            <img src="assets/me-2.jpeg" alt="Nandeshwar working"
+              class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700">
+          </div>
+        </div>
+
+        <!-- About Right: Content -->
+        <div
+          class="md:col-span-7 flex flex-col justify-center space-y-6 text-neutral-600 dark:text-neutral-400 text-base sm:text-lg leading-relaxed">
+          <div class="flex items-center space-x-3 text-neutral-900 dark:text-white">
+            <img src="assets/education.png" alt="Education Icon" class="h-6 w-6 object-contain dark:invert" />
+            <h3 class="font-semibold text-lg">Undergraduate Study</h3>
+          </div>
+          <p>
+            I am currently pursuing my undergraduate degree in Computer Science and Engineering. I enjoy working on web
+            development, Android applications, and core software problem-solving using languages like Java, Python, and
+            C++.
+          </p>
+          <p>
+            I have hands-on experience with frontend frameworks, backend systems, databases like MongoDB and SQL, and
+            design toolkits such as Bootstrap. Alongside my coursework, I'm exploring Data Structures, Algorithms, and
+            Cybersecurity to strengthen my technical foundation.
+          </p>
+          <p>
+            Outside of coding, I enjoy tracking trends in artificial intelligence, contributing to open-source code, and
+            playing outdoor sports to keep an active, balanced lifestyle.
+          </p>
+          <p class="font-serif text-xl italic text-neutral-800 dark:text-neutral-200">
+            "My long-term goal is to grow into a full-stack engineer and build tools that provide real-world value."
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-24 border-t border-neutral-200/60 dark:border-neutral-800/60">
+      <div class="mb-16">
+        <span class="text-xs uppercase tracking-widest text-neutral-400 dark:text-neutral-500 font-semibold">
+          02 / Expertise</span>
+        <h2 class="font-serif text-4xl sm:text-5xl font-normal text-neutral-900 dark:text-white mt-2">Technologies & Languages</h2>
+      </div>
+
+      <div class="space-y-16 scroll-reveal opacity-0 translate-y-8 transition-all duration-700 ease-out">
+        <!-- Languages Group -->
+        <div>
+          <h3 class="text-xs uppercase tracking-widest text-neutral-400 dark:text-neutral-500 font-bold mb-6">Languages</h3>
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+            <!-- Java -->
+            <div class="p-6 border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 hover:border-neutral-900 dark:hover:border-white transition-all duration-300 rounded-xl flex flex-col items-center justify-center text-center">
+              <i class="bi bi-cup-hot text-3xl text-neutral-950 dark:text-white"></i>
+              <span class="mt-3 text-xs font-semibold tracking-wide uppercase">Java</span>
+            </div>
+            <!-- JavaScript -->
+            <div class="p-6 border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 hover:border-neutral-900 dark:hover:border-white transition-all duration-300 rounded-xl flex flex-col items-center justify-center text-center">
+              <i class="bi bi-filetype-js text-3xl text-neutral-950 dark:text-white"></i>
+              <span class="mt-3 text-xs font-semibold tracking-wide uppercase">JavaScript</span>
+            </div>
+            <!-- Python -->
+            <div class="p-6 border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 hover:border-neutral-900 dark:hover:border-white transition-all duration-300 rounded-xl flex flex-col items-center justify-center text-center">
+              <i class="bi bi-filetype-py text-3xl text-neutral-950 dark:text-white"></i>
+              <span class="mt-3 text-xs font-semibold tracking-wide uppercase">Python</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Frameworks & Runtimes Group -->
+        <div>
+          <h3 class="text-xs uppercase tracking-widest text-neutral-400 dark:text-neutral-500 font-bold mb-6">Frameworks & Runtimes</h3>
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+            <!-- Node.js -->
+            <div class="p-6 border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 hover:border-neutral-900 dark:hover:border-white transition-all duration-300 rounded-xl flex flex-col items-center justify-center text-center">
+              <i class="bi bi-server text-3xl text-neutral-950 dark:text-white"></i>
+              <span class="mt-3 text-xs font-semibold tracking-wide uppercase">Node.js</span>
+            </div>
+            <!-- Express -->
+            <div class="p-6 border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 hover:border-neutral-900 dark:hover:border-white transition-all duration-300 rounded-xl flex flex-col items-center justify-center text-center">
+              <i class="bi bi-braces text-3xl text-neutral-950 dark:text-white"></i>
+              <span class="mt-3 text-xs font-semibold tracking-wide uppercase">Express</span>
+            </div>
+            <!-- Spring Boot -->
+            <div class="p-6 border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 hover:border-neutral-900 dark:hover:border-white transition-all duration-300 rounded-xl flex flex-col items-center justify-center text-center">
+              <i class="bi bi-leaf text-3xl text-neutral-950 dark:text-white"></i>
+              <span class="mt-3 text-xs font-semibold tracking-wide uppercase">Spring Boot</span>
+            </div>
+            <!-- Tailwind CSS -->
+            <div class="p-6 border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 hover:border-neutral-900 dark:hover:border-white transition-all duration-300 rounded-xl flex flex-col items-center justify-center text-center">
+              <i class="bi bi-wind text-3xl text-neutral-950 dark:text-white"></i>
+              <span class="mt-3 text-xs font-semibold tracking-wide uppercase">Tailwind CSS</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Databases & Tools Group -->
+        <div>
+          <h3 class="text-xs uppercase tracking-widest text-neutral-400 dark:text-neutral-500 font-bold mb-6">Databases & Tools</h3>
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+            <!-- MongoDB -->
+            <div class="p-6 border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 hover:border-neutral-900 dark:hover:border-white transition-all duration-300 rounded-xl flex flex-col items-center justify-center text-center">
+              <i class="bi bi-database-fill text-3xl text-neutral-950 dark:text-white"></i>
+              <span class="mt-3 text-xs font-semibold tracking-wide uppercase">MongoDB</span>
+            </div>
+            <!-- SQL -->
+            <div class="p-6 border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 hover:border-neutral-900 dark:hover:border-white transition-all duration-300 rounded-xl flex flex-col items-center justify-center text-center">
+              <i class="bi bi-database-check text-3xl text-neutral-950 dark:text-white"></i>
+              <span class="mt-3 text-xs font-semibold tracking-wide uppercase">SQL</span>
+            </div>
+            <!-- HTML5 -->
+            <div class="p-6 border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 hover:border-neutral-900 dark:hover:border-white transition-all duration-300 rounded-xl flex flex-col items-center justify-center text-center">
+              <i class="bi bi-filetype-html text-3xl text-neutral-950 dark:text-white"></i>
+              <span class="mt-3 text-xs font-semibold tracking-wide uppercase">HTML5</span>
+            </div>
+            <!-- CSS3 -->
+            <div class="p-6 border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 hover:border-neutral-900 dark:hover:border-white transition-all duration-300 rounded-xl flex flex-col items-center justify-center text-center">
+              <i class="bi bi-filetype-css text-3xl text-neutral-950 dark:text-white"></i>
+              <span class="mt-3 text-xs font-semibold tracking-wide uppercase">CSS3</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-24 border-t border-neutral-200/60 dark:border-neutral-800/60">
+      <div class="mb-16">
+        <span class="text-xs uppercase tracking-widest text-neutral-400 dark:text-neutral-500 font-semibold">
+          03 / Work</span>
+        <h2 class="font-serif text-4xl sm:text-5xl font-normal text-neutral-900 dark:text-white mt-2">Projects</h2>
+      </div>
+
+      <!-- Project Category Filter Tabs -->
+      <div class="flex flex-wrap items-center gap-3 mb-12 scroll-reveal opacity-0 translate-y-8 transition-all duration-700 ease-out">
+        <button class="project-filter-btn px-4 py-2 text-xs font-semibold uppercase tracking-wider border border-neutral-900 dark:border-white bg-neutral-900 dark:bg-white text-white dark:text-neutral-950 transition duration-300" data-filter="all">All</button>
+        <button class="project-filter-btn px-4 py-2 text-xs font-semibold uppercase tracking-wider border border-neutral-200 dark:border-neutral-800 text-neutral-500 hover:border-neutral-900 dark:hover:border-white hover:text-neutral-900 dark:hover:text-white transition duration-300" data-filter="web">Web App</button>
+        <button class="project-filter-btn px-4 py-2 text-xs font-semibold uppercase tracking-wider border border-neutral-200 dark:border-neutral-800 text-neutral-500 hover:border-neutral-900 dark:hover:border-white hover:text-neutral-900 dark:hover:text-white transition duration-300" data-filter="desktop">Desktop App</button>
+        <button class="project-filter-btn px-4 py-2 text-xs font-semibold uppercase tracking-wider border border-neutral-200 dark:border-neutral-800 text-neutral-500 hover:border-neutral-900 dark:hover:border-white hover:text-neutral-900 dark:hover:text-white transition duration-300" data-filter="ml">Machine Learning</button>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 scroll-reveal opacity-0 translate-y-8 transition-all duration-700 ease-out">
+        <!-- Project 1: Breast-Cancer-Analysis -->
+        <div class="group flex flex-col space-y-5 transition-all duration-300 ease-out" 
+          data-category="ml"
+          data-modal-title="Breast Cancer Analysis Tool"
+          data-modal-tag="Machine Learning / Full Stack"
+          data-modal-desc="This project implements a web-based tool for predicting breast cancer diagnosis (Malignant or Benign) based on 10 key cell nucleus measurements. It demonstrates a full-stack machine learning workflow: training a model, persisting it, and serving predictions via a RESTful API to a responsive web interface."
+          data-modal-tech="Python, Machine Learning, Scikit-Learn, Flask, HTML5, CSS3"
+          data-modal-github="https://github.com/Nandeshwar-Goud/Breast-Cancer-Analysis"
+          data-modal-img="assets/breastcancer.png">
+          <div class="aspect-[16/10] w-full rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-900 relative modal-trigger cursor-pointer">
+            <img src="assets/breastcancer.png" alt="Breast Cancer Analysis interface screenshot" class="w-full h-full object-cover scale-100 group-hover:scale-[1.03] transition-transform duration-700">
+          </div>
+          <div class="flex flex-col space-y-2">
+            <span class="text-xs uppercase tracking-widest text-neutral-400 dark:text-neutral-500 font-semibold">Machine Learning / Full Stack</span>
+            <h3 class="font-serif text-2xl font-normal text-neutral-900 dark:text-white modal-trigger cursor-pointer hover:opacity-80 transition-opacity">Breast Cancer Analysis Tool</h3>
+            <p class="text-neutral-600 dark:text-neutral-400 text-sm leading-relaxed max-w-lg">
+              A web tool predicting diagnostic values (Malignant or Benign) based on 10 key cell nuclei characteristics. Serves ML predictions over a REST API to a responsive interface.
+            </p>
+            <a href="#" class="modal-trigger inline-flex items-center text-sm font-semibold tracking-wide uppercase text-neutral-900 dark:text-white hover:text-neutral-500 dark:hover:text-neutral-400 mt-2 link-underline w-fit">
+              View Details →
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 2: Code Collab -->
+        <div class="group flex flex-col space-y-5 transition-all duration-300 ease-out" 
+          data-category="web"
+          data-modal-title="Code Collab Workspace"
+          data-modal-tag="Real-Time Networking / Frontend"
+          data-modal-desc="A shared real-time editing environment allowing multiple people to read, write, and edit code together in real-time. Whether you are coding, brainstorming ideas, taking notes, writing documents, or working on research together, you can contribute and see changes instantly."
+          data-modal-tech="Node.js, Express, JavaScript, Socket.io, Tailwind CSS, HTML5"
+          data-modal-github="https://github.com/Nandeshwar-Goud/codecollab"
+          data-modal-img="assets/codecollab.png">
+          <div class="aspect-[16/10] w-full rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-900 relative modal-trigger cursor-pointer">
+            <img src="assets/codecollab.png" alt="Code Collab workspace screenshot" class="w-full h-full object-cover scale-100 group-hover:scale-[1.03] transition-transform duration-700">
+          </div>
+          <div class="flex flex-col space-y-2">
+            <span class="text-xs uppercase tracking-widest text-neutral-400 dark:text-neutral-500 font-semibold">Real-Time Networking / Frontend</span>
+            <h3 class="font-serif text-2xl font-normal text-neutral-900 dark:text-white modal-trigger cursor-pointer hover:opacity-80 transition-opacity">Code Collab Workspace</h3>
+            <p class="text-neutral-600 dark:text-neutral-400 text-sm leading-relaxed max-w-lg">
+              A web platform enabling multi-user real-time collaborative code editing. Ideal for brainstorming, document editing, and collaborative software research.
+            </p>
+            <a href="#" class="modal-trigger inline-flex items-center text-sm font-semibold tracking-wide uppercase text-neutral-900 dark:text-white hover:text-neutral-500 dark:hover:text-neutral-400 mt-2 link-underline w-fit">
+              View Details →
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 3: Cyber Todo Matrix -->
+        <div class="group flex flex-col space-y-5 transition-all duration-300 ease-out" 
+          data-category="desktop"
+          data-modal-title="Cyber Todo Matrix"
+          data-modal-tag="Desktop App / CustomTkinter"
+          data-modal-desc="A task management system featuring custom matrices to track task urgency and priority. Built with Python and CustomTkinter, it modernizes traditional desktop GUI design with clean tabs, custom widgets, and native styling rules."
+          data-modal-tech="Python, CustomTkinter, Tkinter, File Systems"
+          data-modal-github="https://github.com/Nandeshwar-Goud/codecollab"
+          data-modal-img="assets/cyber todo matrix.png">
+          <div class="aspect-[16/10] w-full rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-900 relative modal-trigger cursor-pointer">
+            <img src="assets/cyber todo matrix.png" alt="Cyber Todo Matrix desktop screenshot" class="w-full h-full object-cover scale-100 group-hover:scale-[1.03] transition-transform duration-700">
+          </div>
+          <div class="flex flex-col space-y-2">
+            <span class="text-xs uppercase tracking-widest text-neutral-400 dark:text-neutral-500 font-semibold">Desktop App / CustomTkinter</span>
+            <h3 class="font-serif text-2xl font-normal text-neutral-900 dark:text-white modal-trigger cursor-pointer hover:opacity-80 transition-opacity">Cyber Todo Matrix</h3>
+            <p class="text-neutral-600 dark:text-neutral-400 text-sm leading-relaxed max-w-lg">
+              A modernized task matrix application built with CustomTkinter in Python, introducing sleek dark styles and widget enhancements over legacy frameworks.
+            </p>
+            <a href="#" class="modal-trigger inline-flex items-center text-sm font-semibold tracking-wide uppercase text-neutral-900 dark:text-white hover:text-neutral-500 dark:hover:text-neutral-400 mt-2 link-underline w-fit">
+              View Details →
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 4: URL Shortener -->
+        <div class="group flex flex-col space-y-5 transition-all duration-300 ease-out" 
+          data-category="web"
+          data-modal-title="URL Shortener"
+          data-modal-tag="Web Service / API"
+          data-modal-desc="District-level science fair award-winning project in 2021. Designed to shrink large URLs into short type redirects using a custom redirects database schema. Built with a fast redirection engine to handle high traffic volumes."
+          data-modal-tech="Python, Web APIs, SQL, HTML5, CSS3"
+          data-modal-github="https://github.com/Nandeshwar-Goud/URL_Shotener"
+          data-modal-img="">
+          <!-- Typographic Premium Minimal Placeholder -->
+          <div class="aspect-[16/10] w-full rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-gradient-to-tr from-neutral-100 to-neutral-200 dark:from-neutral-900 dark:to-neutral-800 flex items-center justify-center relative modal-trigger cursor-pointer">
+            <span class="font-serif text-6xl text-neutral-300 dark:text-neutral-700 font-bold select-none tracking-tighter">URL</span>
+          </div>
+          <div class="flex flex-col space-y-2">
+            <div class="flex items-center space-x-2">
+              <span class="text-xs uppercase tracking-widest text-neutral-400 dark:text-neutral-500 font-semibold">Web Service / API</span>
+              <span class="bg-neutral-100 dark:bg-neutral-900 text-neutral-600 dark:text-neutral-400 text-[10px] uppercase font-bold px-2 py-0.5 rounded-full tracking-wide">Award Winner</span>
+            </div>
+            <h3 class="font-serif text-2xl font-normal text-neutral-900 dark:text-white modal-trigger cursor-pointer hover:opacity-80 transition-opacity">URL Shortener</h3>
+            <p class="text-neutral-600 dark:text-neutral-400 text-sm leading-relaxed max-w-lg">
+              District-level science fair award-winning project (2021). A lightweight backend utility that transforms long URLs into short redirects using clean redirect routes.
+            </p>
+            <a href="#" class="modal-trigger inline-flex items-center text-sm font-semibold tracking-wide uppercase text-neutral-900 dark:text-white hover:text-neutral-500 dark:hover:text-neutral-400 mt-2 link-underline w-fit">
+              View Details →
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 5: Billing GUI -->
+        <div class="group flex flex-col space-y-5 transition-all duration-300 ease-out" 
+          data-category="desktop"
+          data-modal-title="Billing Enterprise Software"
+          data-modal-tag="Desktop App / Python GUI"
+          data-modal-desc="A retail billing system for small enterprises. Created in 2021, it registers transactions, saves local debt registers, prints logs, and maintains customer profiles in localized file systems."
+          data-modal-tech="Python, Tkinter, Local Databases, File Records"
+          data-modal-github="https://github.com/Nandeshwar-Goud/Billing-Gui-software-with-pyhton"
+          data-modal-img="">
+          <!-- Typographic Premium Minimal Placeholder -->
+          <div class="aspect-[16/10] w-full rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-gradient-to-tr from-neutral-100 to-neutral-200 dark:from-neutral-900 dark:to-neutral-800 flex items-center justify-center relative modal-trigger cursor-pointer">
+            <span class="font-serif text-6xl text-neutral-300 dark:text-neutral-700 font-bold select-none tracking-tighter">BILL</span>
+          </div>
+          <div class="flex flex-col space-y-2">
+            <span class="text-xs uppercase tracking-widest text-neutral-400 dark:text-neutral-500 font-semibold">Desktop App / Python GUI</span>
+            <h3 class="font-serif text-2xl font-normal text-neutral-900 dark:text-white modal-trigger cursor-pointer hover:opacity-80 transition-opacity">Billing Enterprise Software</h3>
+            <p class="text-neutral-600 dark:text-neutral-400 text-sm leading-relaxed max-w-lg">
+              A retail billing system for small enterprises. Created in 2021, it saves local transaction logs and monitors customer balances via formatted file records.
+            </p>
+            <a href="#" class="modal-trigger inline-flex items-center text-sm font-semibold tracking-wide uppercase text-neutral-900 dark:text-white hover:text-neutral-500 dark:hover:text-neutral-400 mt-2 link-underline w-fit">
+              View Details →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 border-t border-neutral-200/60 dark:border-neutral-800/60 mb-16">
+      <div
+        class="grid grid-cols-1 md:grid-cols-12 gap-12 scroll-reveal opacity-0 translate-y-8 transition-all duration-700 ease-out">
+        <!-- Contact Intro -->
+        <div class="md:col-span-5 flex flex-col space-y-4">
+          <div>
+            <span class="text-xs uppercase tracking-widest text-neutral-400 dark:text-neutral-500 font-semibold">
+              Contact</span>
+            <h2 class="font-serif text-4xl sm:text-5xl font-normal text-neutral-900 dark:text-white mt-2">Let's Connect
+            </h2>
+          </div>
+          <p class="text-neutral-600 dark:text-neutral-400 text-base leading-relaxed">
+            Interested in collaboration or simply sharing ideas? Feel free to reach out. I will reply to you as soon as
+            possible.
+          </p>
+
+
+        </div>
+
+        <!-- Contact Form -->
+        <div class="md:col-span-7">
+          <form class="space-y-8" id="contact-form">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+              <!-- Name -->
+              <div class="flex flex-col space-y-2">
+                <label for="contact-name"
+                  class="text-xs uppercase tracking-widest text-neutral-400 dark:text-neutral-500 font-bold">Your
+                  Name</label>
+                <input type="text" id="contact-name" required placeholder="Enter name"
+                  class="border-b border-neutral-200 dark:border-neutral-800 focus:border-neutral-900 dark:focus:border-white focus:outline-none bg-transparent rounded-none py-2 text-neutral-900 dark:text-white text-base placeholder-neutral-300 dark:placeholder-neutral-700 transition-colors duration-300">
+              </div>
+              <!-- Email -->
+              <div class="flex flex-col space-y-2">
+                <label for="contact-email"
+                  class="text-xs uppercase tracking-widest text-neutral-400 dark:text-neutral-500 font-bold">Email
+                  Address</label>
+                <input type="email" id="contact-email" required placeholder="Enter email"
+                  class="border-b border-neutral-200 dark:border-neutral-800 focus:border-neutral-900 dark:focus:border-white focus:outline-none bg-transparent rounded-none py-2 text-neutral-900 dark:text-white text-base placeholder-neutral-300 dark:placeholder-neutral-700 transition-colors duration-300">
+              </div>
+            </div>
+            <!-- Message -->
+            <div class="flex flex-col space-y-2">
+              <label for="contact-message"
+                class="text-xs uppercase tracking-widest text-neutral-400 dark:text-neutral-500 font-bold">Your
+                Message</label>
+              <textarea id="contact-message" rows="4" required placeholder="Describe your project details or request"
+                class="border-b border-neutral-200 dark:border-neutral-800 focus:border-neutral-900 dark:focus:border-white focus:outline-none bg-transparent rounded-none py-2 text-neutral-900 dark:text-white text-base placeholder-neutral-300 dark:placeholder-neutral-700 transition-colors duration-300 resize-none"></textarea>
+            </div>
+
+            <button type="submit" id="contact-submit"
+              class="bg-neutral-900 dark:bg-white text-white dark:text-neutral-950 px-8 py-3.5 text-xs font-semibold tracking-widest uppercase hover:bg-neutral-800 dark:hover:bg-neutral-200 transition duration-300">
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-neutral-200/60 dark:border-neutral-800/60 bg-neutral-100 dark:bg-neutral-950 py-12">
+    <div
+      class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between text-neutral-500 dark:text-neutral-400 text-xs tracking-wide uppercase font-medium space-y-4 sm:space-y-0">
+      <div class="flex items-center space-x-2">
+        <span class="text-neutral-900 dark:text-white font-serif text-lg font-bold">RNG</span>
+        <span>© 2026 Nandeshwar Goud</span>
+      </div>
+      <div>
+        Built with Tailwind CSS & Vanilla JS
+      </div>
+    </div>
+  </footer>
+
+  <!-- Minimalist Float Back to Top -->
+  <button id="back-to-top"
+    class="fixed bottom-6 right-6 p-3 bg-neutral-900 dark:bg-white text-white dark:text-neutral-950 rounded-full shadow-lg opacity-0 pointer-events-none hover:opacity-80 transition-all duration-300 z-50 focus:outline-none flex items-center justify-center"
+    aria-label="Back to top">
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5"></path>
+    </svg>
+  </button>
+
+  <!-- Project Details Modal Template -->
+  <div id="project-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-neutral-900/60 dark:bg-black/80 backdrop-blur-sm opacity-0 pointer-events-none transition-all duration-300">
+    <div class="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-2xl w-full max-w-2xl max-h-[85vh] overflow-y-auto m-6 shadow-2xl relative transform scale-95 transition-all duration-300 opacity-0" id="modal-content">
+      <!-- Close button -->
+      <button id="modal-close" class="absolute top-4 right-4 text-neutral-400 hover:text-neutral-900 dark:hover:text-white focus:outline-none p-2 transition-colors" aria-label="Close modal">
+        <i class="bi bi-x-lg text-lg"></i>
       </button>
+      <div class="p-8">
+        <span id="modal-tag" class="text-xs uppercase tracking-widest text-neutral-400 dark:text-neutral-500 font-semibold mb-2 block">Category</span>
+        <h3 id="modal-title" class="font-serif text-3xl sm:text-4xl text-neutral-900 dark:text-white mb-4">Project Title</h3>
+        
+        <!-- Media Container -->
+        <div id="modal-media-container" class="aspect-[16/10] w-full rounded-xl overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-955 mb-6">
+          <img id="modal-img" src="" alt="" class="w-full h-full object-cover">
+          <div id="modal-placeholder" class="hidden w-full h-full flex items-center justify-center bg-gradient-to-tr from-neutral-100 to-neutral-200 dark:from-neutral-900 dark:to-neutral-800">
+            <span id="modal-placeholder-text" class="font-serif text-6xl text-neutral-300 dark:text-neutral-700 font-bold select-none tracking-tighter">TEXT</span>
+          </div>
+        </div>
 
-      <div class="collapse navbar-collapse" id="mainNavbar">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item"><a class="nav-link active" href="#profile">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+        <p id="modal-desc" class="text-neutral-600 dark:text-neutral-400 text-sm sm:text-base leading-relaxed mb-6">
+          Detailed project description will go here...
+        </p>
 
-  <!-- Profile Section -->
-  <section id="profile" class="bg-light">
-    <div class="container">
-      <div class="row align-items-center">
-        <!-- Text -->
-        <div class="col-md-6">
-          <h1 class="fw-bold">Hello,</h1>
-          <h1>I'm <span class="text-info">Nandeshwar</span></h1>
-          <h2 class="h4">An Aspiring Software Engineer</h2>
-          <p class="mt-3">I'm fascinated about modern technology and its features.</p>
-          <a href="./assets/rangunandeshwargoud_resume.pdf" class="btn btn-dark rounded-pill mt-3" target="_blank">
-            View Resume
+        <!-- Tech Badges -->
+        <div class="mb-8">
+          <h4 class="text-xs uppercase tracking-widest text-neutral-400 dark:text-neutral-500 font-bold mb-3">Technologies Used</h4>
+          <div id="modal-tech-list" class="flex flex-wrap gap-2">
+            <!-- Dynamic Badges -->
+          </div>
+        </div>
+
+        <!-- Links -->
+        <div class="flex items-center space-x-6 border-t border-neutral-100 dark:border-neutral-800 pt-6">
+          <a id="modal-github" href="" target="_blank" class="inline-flex items-center justify-center bg-neutral-900 dark:bg-white text-white dark:text-neutral-950 px-6 py-3 text-xs font-semibold tracking-wider uppercase hover:bg-neutral-800 dark:hover:bg-neutral-200 transition duration-300">
+            View on GitHub <i class="bi bi-github ml-2"></i>
           </a>
-
-          <!-- Social -->
-          <div class="social-icons mt-4">
-            <a href="https://github.com" target="_blank"><img src="assets/github-sign.png" alt="GitHub"
-                class="social-icons"></a>
-            <a href="https://linkedin.com" target="_blank"><img src="assets/linkedin.png" alt="LinkedIn"
-                class="social-icons"></a>
-          </div>
-        </div>
-
-        <!-- Image -->
-        <div class="col-md-6 text-center mt-4 mt-md-0">
-          <img src="assets/nandu.jpg" alt="Nandeshwar" class="hero-img img-fluid shadow">
         </div>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- About Section -->
-  <section id="about">
-    <div class="container text-center">
-      <h1 class="fw-bold mb-5">ABOUT ME</h1>
-      <div class="row">
-        <!-- Image -->
-        <div class="col-md-5 mb-4 mb-md-0">
-          <img src="assets/me-2.jpeg" alt="Nandeshwar" class="img-fluid rounded shadow">
-        </div>
-        <!-- Text -->
-        <div class="container col-md-7 text-start">
-          <div class="d-flex justify-content-start align-items-start mb-3">
-            <img src="assets/education.png" alt="Education" class="me-3" style="height: 30px;">
-            <h3>Details</h3>
-          </div>
-          <div class="container">
-            <p class="lead">
-              I am currently pursuing my undergraduate degree in Computer Science and Engineering.
-            </p>
+  <!-- Custom Magnetic Cursor Widget -->
+  <div id="custom-cursor" class="hidden lg:block fixed w-2.5 h-2.5 bg-neutral-900 dark:bg-white rounded-full pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 transition-transform duration-100 ease-out mix-blend-difference"></div>
 
-            <p class="lead">
-
-              I enjoy working on <strong>web development, Android applications, and problem-solving</strong> using
-              languages like <strong>Java, Python, and C++</strong>.
-            </p>
-            <p class="lead">
-              I have hands-on experience with <strong>frontend and backend development</strong>,
-              databases like <strong>MongoDB and SQL</strong>, and frameworks such as <strong>Bootstrap</strong>.
-              Alongside academics, I’m actively exploring <strong>Data Structures, Algorithms, and
-                Cybersecurity</strong>
-              to strengthen my technical foundation.
-            </p>
-            <p class="lead">
-              My goal is to contribute to impactful projects, enhance my skills in
-              <strong>full-stack development</strong>, and pursue opportunities where I can grow
-              as a software engineer while delivering real-world value.
-            </p>
-            <p class="lead">
-              Outside of coding, I enjoy exploring new technologies, reading about
-              <strong>AI trends</strong>, and contributing to small open-source projects.
-              I also like to stay active by playing outdoor sports, which helps me maintain
-              a balanced and energetic lifestyle.
-            </p>
-            <p class="lead">
-              My long-term goal is to grow into a <strong>full-stack developer</strong> and eventually
-              work on impactful projects in fields like <strong>AI, cybersecurity, and cloud computing</strong>.
-              I am eager to collaborate, learn continuously, and contribute my skills to
-              meaningful innovations that make a difference.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- Skills Section -->
-  <section id="skills" class="bg-light">
-    <div class="container text-center">
-      <h2 class="mb-4">Skills</h2>
-      <div class="row gy-4">
-        <div class="col-md-3">
-          <div class="p-3 border rounded">
-            <i class="bi bi-filetype-html fs-1 text-danger"></i>
-            <p class="mt-2">HTML</p>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="p-3 border rounded">
-            <i class="bi bi-filetype-css fs-1 text-primary"></i>
-            <p class="mt-2">CSS</p>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="p-3 border rounded">
-            <i class="bi bi-filetype-js fs-1 text-warning"></i>
-            <p class="mt-2">JavaScript</p>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="p-3 border rounded">
-            <i class="bi bi-bootstrap-fill fs-1 text-purple"></i>
-            <p class="mt-2">Bootstrap</p>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="p-3 border rounded">
-            <i class="bi bi-cup-hot-fill fs-1 text-brown"></i>
-            <p class="mt-2">Java</p>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="p-3 border rounded">
-            <i class="bi bi-filetype-py fs-1 text-info"></i>
-            <p class="mt-2">Python</p>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="p-3 border rounded">
-            <i class="bi bi-terminal-fill fs-1 text-dark"></i>
-            <p class="mt-2">C/C++</p>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="p-3 border rounded">
-            <i class="bi bi-database-fill fs-1 text-success"></i>
-            <p class="mt-2">MongoDB</p>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="p-3 border rounded">
-            <i class="bi bi-database-check fs-1 text-primary"></i>
-            <p class="mt-2">SQL</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- Projects Section -->
-  <section id="projects" class="py-5">
-    <div class="container">
-      <h2 class="text-center mb-4">Projects</h2>
-      <div class="row">
-        <div class="col-md-4 mb-4">
-          <div class="card project-card">
-            <img src="assets/breastcancer.png" class="card-img-top" alt="Project 1">
-            <div class="card-body">
-              <h5 class="card-title">Breast-Cancer-Analysis</h5>
-              <p class="card-text">This project implements a web-based tool for predicting breast cancer diagnosis
-                (Malignant or Benign) based on 10 key
-                cell nucleus measurements. It demonstrates a full-stack machine learning workflow: training a model,
-                persisting it, and
-                serving predictions via a RESTful API to a responsive web interface.</p>
-              <a href="https://github.com/Nandeshwar-Goud/Breast-Cancer-Analysis" class="btn btn-primary">View</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 mb-4">
-          <div class="card project-card">
-            <img src="assets/codecollab.png" class="card-img-top" alt="Project 1">
-            <div class="card-body">
-              <h5 class="card-title">Code collab</h5>
-              <p class="card-text">A shared real-time editing environment allows multiple people to read, write, and
-                edit together in real-time.Whether you are coding, throwing around ideas, taking notes, writing
-                documents, or working on research together,
-                they all can
-                contribute and see changes in real-time.</p>
-              <a href="https://github.com/Nandeshwar-Goud/codecollab" class="btn btn-primary">View</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 mb-4">
-          <div class="card project-card">
-            <img src="assets/cyber todo matrix.png" class="card-img-top" alt="Project 1">
-            <div class="card-body">
-              <h5 class="card-title">Cyber Todo Matrix</h5>
-              <p class="card-text">CustomTkinter is a powerful Python UI library that modernizes the traditional Tkinter
-                framework with contemporary
-                widgets, themes, and styling options.</p>
-              <a href="https://github.com/Nandeshwar-Goud/codecollab" class="btn btn-primary">View</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 mb-4">
-          <div class="card project-card">
-            <img src="https://via.placeholder.com/400x200" class="card-img-top" alt="Project 2">
-            <div class="card-body">
-              <h5 class="card-title">URL Shortner</h5>
-              <p class="card-text">District level science fair award winning project in 2021.Making large url's into
-                smaller type of url's using tiny url service.</p>
-              <a href="https://github.com/Nandeshwar-Goud/URL_Shotener" class="btn btn-primary">View</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 mb-4">
-          <div class="card project-card">
-            <img src="https://via.placeholder.com/400x200" class="card-img-top" alt="Project 3">
-            <div class="card-body">
-              <h5 class="card-title">Billing-Gui-software-with-pyhton</h5>
-              <p class="card-text">A Bill software for small enterprise to save their bills and any debt taken by
-                customers in the from of files.legacy type software in 2021</p>
-              <a href="https://github.com/Nandeshwar-Goud/Billing-Gui-software-with-pyhton"
-                class="btn btn-primary">View</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="py-5  bg-dark text-white text-center py-3">
-    <div class="container">
-      <h2 class="text-center mb-4">Contact Me</h2>
-      <form class="w-50 mx-auto">
-        <div class="mb-3">
-          <input type="text" class="form-control" placeholder="Your Name" required>
-        </div>
-        <div class="mb-3">
-          <input type="email" class="form-control" placeholder="Your Email" required>
-        </div>
-        <div class="mb-3">
-          <textarea class="form-control" rows="4" placeholder="Your Message" required></textarea>
-        </div>
-        <button class="btn btn-primary w-100">Send Message</button>
-      </form>
-      <p class="mb-0">© 2025 My Portfolio | Built with Bootstrap</p>
-    </div>
-  </section>
-  <!-- footer -->
-
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Main JavaScript Bundle -->
+  <script src="script.js"></script>
 </body>
 
 </html>
