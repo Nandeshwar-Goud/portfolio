@@ -158,6 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             } catch (error) {
                 showToast('Failed to send message. Please try again later.', 'red');
+                console.log(error);
             }
 
         });
