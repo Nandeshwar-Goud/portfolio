@@ -9,9 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
         menuToggle.addEventListener('click', () => {
             const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
             menuToggle.setAttribute('aria-expanded', !isExpanded);
-            
+
             mobileMenu.classList.toggle('hidden');
-            
+
             if (menuIconOpen && menuIconClose) {
                 menuIconOpen.classList.toggle('hidden');
                 menuIconClose.classList.toggle('hidden');
@@ -68,8 +68,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (themeToggle) {
         themeToggle.addEventListener('click', () => {
             if (document.documentElement.classList.contains('dark')) {
+
                 disableDarkMode();
             } else {
+
                 enableDarkMode();
             }
         });
@@ -78,10 +80,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Intersection Scroll Spy ---
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('nav a');
-    
+
     const scrollSpy = () => {
         let currentSectionId = 'profile';
-        
+
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
             const sectionHeight = section.offsetHeight;
@@ -107,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Scroll Reveal Animations ---
     const revealElements = document.querySelectorAll('.scroll-reveal');
-    
+
     if (revealElements.length > 0) {
         const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -128,31 +130,36 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Contact Form Mailto Handler ---
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
+        contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
 
             const name = document.getElementById('contact-name').value.trim();
             const email = document.getElementById('contact-email').value.trim();
             const message = document.getElementById('contact-message').value.trim();
-
-            if (name && email && message) {
-                const mailtoEmail = 'nandeshwar.rangu@gmail.com';
-                const subject = encodeURIComponent(`Portfolio Message from ${name}`);
-                const bodyContent = encodeURIComponent(
-                    `Hello Nandeshwar,\n\nYou have received a new message from your portfolio:\n\n` +
-                    `Name: ${name}\n` +
-                    `Email: ${email}\n\n` +
-                    `Message:\n${message}\n\n` +
-                    `Best regards,\n${name}`
-                );
-
-                const mailtoLink = `mailto:${mailtoEmail}?subject=${subject}&body=${bodyContent}`;
-                window.location.href = mailtoLink;
-                
-                setTimeout(() => {
-                    contactForm.reset();
-                }, 1000);
+            const form_data = {
+                name: name,
+                email: email,
+                message: message
             }
+            try {
+                const res = await fetch('https://portfolio-form-handler.vercel.app/api/send-email', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(form_data)
+                })
+
+                const data = await res.json();
+                if (data.success) {
+                    showToast('Message sent successfully!', 'green');
+                    contactForm.reset();
+                }
+                else {
+                    showToast(data.error, 'red');
+                }
+            } catch (error) {
+                showToast('Failed to send message. Please try again later.', 'red');
+            }
+
         });
     }
 
@@ -160,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const copyEmailBtn = document.getElementById('copy-email-btn');
     const copyEmailIcon = document.getElementById('copy-email-icon');
     const copyToast = document.getElementById('copy-toast');
-    
+
     if (copyEmailBtn && copyToast && copyEmailIcon) {
         copyEmailBtn.addEventListener('click', () => {
             const emailText = 'nandeshwar.rangu@gmail.com';
@@ -169,7 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 copyEmailIcon.className = 'bi bi-check-lg text-emerald-500';
                 copyToast.classList.remove('hidden', 'opacity-0');
                 copyToast.classList.add('opacity-100');
-                
+
                 setTimeout(() => {
                     copyEmailIcon.className = 'bi bi-clipboard';
                     copyToast.classList.remove('opacity-100');
@@ -238,7 +245,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const modal = document.getElementById('project-modal');
     const modalContent = document.getElementById('modal-content');
     const modalClose = document.getElementById('modal-close');
-    
+
     const modalTag = document.getElementById('modal-tag');
     const modalTitle = document.getElementById('modal-title');
     const modalDesc = document.getElementById('modal-desc');
@@ -342,5 +349,49 @@ document.addEventListener('DOMContentLoaded', () => {
                 cursor.classList.add('w-2.5', 'h-2.5');
             });
         });
+    }
+
+    // --- Toast Notification System ---
+    function showToast(message, type = 'green') {
+        let container = document.getElementById('toast-container');
+        if (!container) {
+            container = document.createElement('div');
+            container.id = 'toast-container';
+            container.className = 'fixed top-6 right-6 z-[9999] flex flex-col gap-3 pointer-events-none';
+            document.body.appendChild(container);
+        }
+
+        const toast = document.createElement('div');
+        toast.className = `px-10 py-3 rounded-lg text-sm font-semibold tracking-wider shadow-lg transition-all duration-300 transform translate-y-4 opacity-0 flex items-center gap-2 pointer-events-auto border backdrop-blur-md`;
+
+        if (type === 'green') {
+            toast.classList.add('bg-emerald-50/90', 'border-emerald-200', 'text-emerald-800', 'dark:bg-emerald-950/90', 'dark:border-emerald-800', 'dark:text-emerald-200');
+        } else {
+            toast.classList.add('bg-rose-50/90', 'border-rose-200', 'text-rose-800', 'dark:bg-rose-950/90', 'dark:border-rose-800', 'dark:text-rose-200');
+        }
+
+        const icon = document.createElement('i');
+        icon.className = type === 'green' ? 'bi bi-check-circle-fill text-emerald-500' : 'bi bi-exclamation-circle-fill text-rose-500';
+        toast.appendChild(icon);
+
+        const text = document.createElement('span');
+        text.textContent = message;
+        toast.appendChild(text);
+
+        container.appendChild(toast);
+        toast.offsetHeight; // Force reflow
+        toast.classList.remove('translate-y-4', 'opacity-0');
+        toast.classList.add('translate-y-0', 'opacity-100');
+
+        setTimeout(() => {
+            toast.classList.remove('translate-y-0', 'opacity-100');
+            toast.classList.add('translate-y-4', 'opacity-0');
+            setTimeout(() => {
+                toast.remove();
+                if (container.children.length === 0) {
+                    container.remove();
+                }
+            }, 150);
+        }, 3000);
     }
 });
